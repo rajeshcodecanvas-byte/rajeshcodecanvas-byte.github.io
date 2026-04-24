@@ -6,24 +6,24 @@
     <title>Rajesh CodeCanvas | Android Developer Portfolio</title>
     <style>
         :root { --primary: #2563eb; --secondary: #64748b; --bg: #f8fafc; --text: #1e293b; }
-        body { font-family: 'Inter', system-ui, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); line-height: 1.6; }
         .header { background: white; padding: 80px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
         .tagline { color: var(--primary); font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; }
         
         .container { max-width: 1100px; margin: 40px auto; padding: 20px; }
         
-        /* About Me Section */
-        .about-section { background: white; padding: 40px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        /* Professional About Me Section */
+        .about-section { background: white; padding: 40px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
         .about-section h2 { margin-top: 0; color: var(--primary); }
 
-        /* Grid Layout */
+        /* App Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         .app-card { background: white; padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--primary); }
         .app-card h3 { margin: 0 0 10px 0; color: var(--text); }
         .app-card p { font-size: 0.95rem; color: var(--secondary); flex-grow: 1; }
         
-        .btn { display: inline-block; padding: 12px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600; text-align: center; transition: 0.2s; }
+        .btn { display: inline-block; padding: 12px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600; text-align: center; }
         .btn:hover { opacity: 0.9; }
 
         .footer { text-align: center; padding: 60px 20px; color: var(--secondary); font-size: 14px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
@@ -32,61 +32,67 @@
 <body>
 
 <div class="header">
-    <div class="tagline">Verified Android Developer</div>
+    <div class="tagline">Verified Google Play Developer</div>
     <h1>Rajesh CodeCanvas</h1>
-    <p>Crafting high-performance, user-centric mobile solutions with modern UI.</p>
+    <p>Premium Android Applications with Modern Design & High Performance</p>
 </div>
 
 <div class="container">
     <div class="about-section">
         <h2>About the Developer</h2>
-        <p>Hello, I am <strong>Rajesh Kumar Behera</strong>, an independent Android developer dedicated to building "world-class" digital tools. My mission is to combine beautiful, modern design (Glassmorphism, 3D effects) with high-utility features that solve daily problems.</p>
-        <p>I specialize in <strong>Kotlin, Jetpack Compose, and SQLite</strong> database management. Every app I publish undergoes rigorous testing to ensure user safety, data privacy, and a premium experience. Whether it's education, health, or utility, I build apps that people love to use every day.</p>
+        <p>I am <strong>Rajesh Kumar Behera</strong>, an independent Android developer specializing in high-utility tools and educational resources. My development philosophy focuses on "world-class" UI/UX, data accuracy, and user privacy.</p>
+        <p>With a portfolio ranging from advanced linguistic tools to AI-driven health trackers, I leverage <strong>Kotlin and Jetpack Compose</strong> to create seamless mobile experiences. Every application listed below is built with a commitment to quality and regular updates based on user feedback.</p>
     </div>
 
-    <h2 style="margin-bottom: 30px;">App Portfolio & Legal</h2>
+    <h2 style="margin-bottom: 30px;">App Portfolio & Legal Center</h2>
     <div class="grid">
         <div class="app-card">
-            <h3>Ultra Calculator</h3>
-            <p>A powerful, high-precision calculator with history tracking and scientific functions for students and pros.</p>
-            <a href="https://rajeshcodecanvas-byte.github.io/privacy-policy/" class="btn">Privacy Policy</a>
-        </div>
-
-        <div class="app-card">
             <h3>AmaOdia Dictionary</h3>
-            <p>A comprehensive 120,000-word English-to-Odia dictionary featuring a floating translation widget.</p>
+            <p>The definitive English-to-Odia resource featuring a massive 2.4 Lakh word database, floating widgets, and offline support.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/amaodia-privacy-policy/" class="btn">Privacy Policy</a>
         </div>
 
         <div class="app-card">
+            <h3>Ultra Calculator</h3>
+            <p>A sophisticated scientific calculator with history logs and a premium "Ultra" interface for complex calculations.</p>
+            <a href="https://rajeshcodecanvas-byte.github.io/privacy-policy/" class="btn">Privacy Policy</a>
+        </div>
+
+        <div class="app-card">
             <h3>QuizDom: Brain Trivia</h3>
-            <p>Engaging general knowledge trivia with 5,000+ questions and competitive global leaderboards.</p>
+            <p>Challenging general knowledge trivia with over 5,000 questions and competitive real-time leaderboards.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/quizdom-legal/" class="btn">Privacy Policy</a>
         </div>
 
         <div class="app-card">
             <h3>HydraAI Tracker</h3>
-            <p>Advanced hydration monitoring with 3D water sloshing effects and localized weather goals.</p>
+            <p>Smart hydration tracking featuring 3D water sloshing effects and personalized weather-based goals.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/HydraAI-Legal/" class="btn">Privacy Policy</a>
         </div>
 
         <div class="app-card">
             <h3>Vora Unit Converter</h3>
-            <p>A smart, multi-category unit converter designed with a minimalist glassmorphic interface.</p>
+            <p>A minimalist, multi-category unit converter utilizing a modern glassmorphic design for fast conversions.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/vora-legal/" class="btn">Privacy Policy</a>
         </div>
 
         <div class="app-card">
             <h3>Aura: Soul Insights</h3>
-            <p>Daily motivational quotes and mental health affirmations to stay inspired and positive.</p>
+            <p>Your daily companion for mental wellness, offering curated motivational quotes and soul affirmations.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/soulpure-legal/" class="btn">Privacy Policy</a>
+        </div>
+
+        <div class="app-card">
+            <h3>VizoScan</h3>
+            <p>A premium document scanning utility with high-speed OCR technology for professional workflows.</p>
+            <a href="https://rajeshcodecanvas-byte.github.io/vizoscan-legal/" class="btn">Privacy Policy</a>
         </div>
     </div>
 </div>
 
 <div class="footer">
     <p>&copy; 2026 Rajesh CodeCanvas. All Rights Reserved.</p>
-    <p>Contact for Support: rajesh.codecanvas@gmail.com</p>
+    <p>Contact Support: rajesh.codecanvas@gmail.com</p>
 </div>
 
 </body>
