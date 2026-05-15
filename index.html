@@ -24,6 +24,7 @@
             line-height: 1.6;
             background-image: radial-gradient(circle at top right, #1e1b4b, transparent), 
                               radial-gradient(circle at bottom left, #1e1b4b, transparent);
+            background-attachment: fixed;
         }
 
         /* Hero Section */
@@ -53,7 +54,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
-        /* About Section - The "We" Approach */
+        /* About Section */
         .about-card {
             background: var(--card-bg);
             padding: 40px;
@@ -73,7 +74,7 @@
             gap: 30px;
         }
 
-        /* Glassmorphic App Card */
+        /* App Card */
         .app-card {
             background: var(--card-bg);
             padding: 35px;
@@ -90,15 +91,15 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
             pointer-events: none;
         }
 
         .app-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .app-card h3 { margin: 0 0 12px 0; font-size: 1.5rem; color: #fff; }
@@ -122,7 +123,7 @@
         .btn:hover {
             background: var(--primary);
             border-color: var(--primary);
-            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
         }
 
         .footer {
@@ -151,52 +152,52 @@
 <div class="container">
     <div class="about-card">
         <h2>Our Vision</h2>
-        <p>At <strong>CodeCanvas Studio</strong>, we specialize in building robust Android applications using the latest industry standards. Our development process prioritizes <strong>Privacy-First architecture</strong>, offline reliability, and intuitive Material 3 design.</p>
-        <p>From linguistic tools to AI-integrated utilities, our suite of applications is engineered for performance and scalability. We believe in creating tools that empower users while maintaining the highest standards of data security.</p>
+        <p>At <strong>CodeCanvas Studio</strong>, we specialize in building robust Android applications using the latest industry standards. Our development process prioritizes <strong>Privacy-First architecture</strong>, offline reliability, and intuitive Jetpack Compose design.</p>
+        <p>From linguistic tools to AI-integrated utilities, our suite of applications is engineered for speed and precision. We believe in creating tools that empower users while maintaining the highest standards of digital security.</p>
     </div>
 
     <h2 style="margin-bottom: 40px; font-size: 2rem;">Product Ecosystem</h2>
     
     <div class="grid">
-        <!-- App 1 -->
+        <!-- App 1: QMaster -->
+        <div class="app-card">
+            <h3>QMaster: Brain Trivia</h3>
+            <p>An advanced cognitive training platform. Featuring a sophisticated trivia architecture designed for low-latency performance and high-engagement learning.</p>
+            <a href="https://rajeshcodecanvas-byte.github.io/qmaster-legal/" class="btn">Legal & Privacy</a>
+        </div>
+
+        <!-- App 2: AmaOdia -->
         <div class="app-card">
             <h3>AmaOdia Dictionary</h3>
-            <p>A comprehensive linguistic bridge featuring 2.4 Lakh word pairs. Built with optimized local databases for lightning-fast offline search.</p>
+            <p>A comprehensive linguistic bridge featuring a 2.4 Lakh word database. Optimized with localized storage for lightning-fast offline search capabilities.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/amaodia-privacy-policy/" class="btn">Legal & Privacy</a>
         </div>
 
-        <!-- App 2 -->
+        <!-- App 3: HydraAI -->
         <div class="app-card">
             <h3>HydraAI Tracker</h3>
-            <p>Next-generation hydration management. Uses localized data to provide personalized wellness goals with a stunning fluid-UI design.</p>
+            <p>Next-generation wellness management. Uses smart data logic to provide personalized hydration goals with a stunning fluid-UI design.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/HydraAI-Legal/" class="btn">Legal & Privacy</a>
         </div>
 
-        <!-- App 3 -->
+        <!-- App 4: Vora -->
         <div class="app-card">
             <h3>Vora Unit Converter</h3>
-            <p>Minimalist engineering tool designed for precision. Features a glassmorphic interface and support for over 50 conversion categories.</p>
+            <p>Minimalist engineering tool designed for precision. Features a glassmorphic interface and support for extensive conversion categories.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/vora-legal/" class="btn">Legal & Privacy</a>
         </div>
 
-        <!-- App 4 -->
-        <div class="app-card">
-            <h3>QuizDom</h3>
-            <p>Advanced cognitive training platform. Engaging trivia architecture designed for low-latency performance and global leaderboards.</p>
-            <a href="https://rajeshcodecanvas-byte.github.io/quizdom-legal/" class="btn">Legal & Privacy</a>
-        </div>
-
-        <!-- App 5 -->
+        <!-- App 5: VizoScan -->
         <div class="app-card">
             <h3>VizoScan</h3>
-            <p>Professional-grade document digitizer. Incorporates high-speed OCR technology for seamless workflow automation.</p>
+            <p>Professional-grade document digitizer. Incorporates high-speed OCR technology and local-first storage for seamless workflow automation.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/vizoscan-legal/" class="btn">Legal & Privacy</a>
         </div>
 
-        <!-- App 6 -->
+        <!-- App 6: SoulPure -->
         <div class="app-card">
             <h3>SoulPure</h3>
-            <p>A mental wellness companion providing daily curated insights and affirmations through a calming, modern UI.</p>
+            <p>A mental wellness companion providing daily curated insights and affirmations through a calming, modern Material 3 interface.</p>
             <a href="https://rajeshcodecanvas-byte.github.io/soulpure-legal/" class="btn">Legal & Privacy</a>
         </div>
     </div>
