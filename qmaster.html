@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QMaster: Brain Trivia | The CodeCanvas Studio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --accent: #06b6d4;
+            --bg: #090d16;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12), transparent 40%), 
+                radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08), transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .nav-bar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 22, 0.8);
+        }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover { color: #fff; }
+
+        .header { 
+            padding: 60px 20px 40px; 
+            text-align: center; 
+        }
+        
+        .studio-badge { 
+            display: inline-block; 
+            padding: 8px 20px; 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.2)); 
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px; 
+            font-size: 0.75rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 20px;
+            color: #34d399;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+        }
+
+        h1 { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            letter-spacing: -2px; 
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-p { 
+            color: var(--text-dim); 
+            font-size: 1.2rem; 
+            max-width: 650px; 
+            margin: 15px auto 30px; 
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .btn { 
+            padding: 14px 28px; 
+            background: rgba(255, 255, 255, 0.05); 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            text-align: center; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover { 
+            background: #4f46e5; 
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 20px 80px; 
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 24px; 
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            display: flex; 
+            flex-direction: column;
+        }
+
+        .feature-card:hover { 
+            transform: translateY(-6px); 
+            border-color: rgba(99, 102, 241, 0.4); 
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card h3 { 
+            margin: 0 0 12px 0; 
+            color: #fff; 
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .feature-card p { 
+            color: var(--text-dim); 
+            font-size: 0.92rem; 
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: var(--text-dim); 
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.5rem; } 
+            .cta-container { flex-direction: column; padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="../index.html" class="back-link">&larr; Back to Studio Portfolio</a>
+    <span style="font-weight: 700; font-size: 0.850rem; color: var(--accent);">The CodeCanvas Studio</span>
+</div>
+
+<div class="header">
+    <div class="studio-badge">Flagship Android Release</div>
+    <h1>QMaster: Brain Trivia</h1>
+    <p class="hero-p">Advanced cognitive training platform built with low-latency architecture, interactive challenges, and a comprehensive global encyclopedia.</p>
+    
+    <div class="cta-container">
+        <a href="https://play.google.com/store/apps/details?id=com.rajesh.codecanvas.qmaster&pcampaignid=web_share" class="btn btn-primary" target="_blank">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.47 1.47 0 0 1-.61-1.2V3.014c0-.495.22-.95.61-1.2zM15.208 13.415l2.052 2.052-10.45 6.034 8.398-8.086zM6.81 4.5l10.45 6.034-2.052 2.052L6.81 4.5zM17.26 12.535l3.435 1.983a1.47 1.47 0 0 1 0 2.544l-3.435 1.983-2.052-2.052 2.052-2.052c0-.14 0-.27 0-.406z"/></svg>
+            Get it on Google Play
+        </a>
+        <a href="https://rajeshcodecanvas-byte.github.io/qmaster-legal/" class="btn btn-secondary" target="_blank">Privacy Policy</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Core Modules & Architecture</h2>
+    
+    <div class="grid">
+        <div class="feature-card">
+            <h3>🎮 Interactive Quiz Engine</h3>
+            <p>Generates randomized 15-question sets from a pool of 4,000+ MCQs featuring dynamic gold-to-red timers, tactical haptic feedback, real-time score calculation, and process-death protection.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📚 Study Realm Library</h3>
+            <p>A deep-learning knowledge bank divided into 23 specialized categories including Physics, World History, General Science, and Literature with readability-optimized focus views.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🌍 Country Knowledge Encyclopedia</h3>
+            <p>Explore vital statistics, high-definition flags, currencies, time zones, governments, and tourist landmarks for over 200 nations with an ANR-proof real-time search engine.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🏆 Leaderboard & Tracking</h3>
+            <p>Locally stored database tracking your top 10 highest-scoring runs with special gold tier styling, precision accuracy metrics, and one-tap social achievement sharing.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Golden Standard Performance</h3>
+            <p>Engineered for high-end Play Store standards with zero-lag splash screening, background streaming for heavy data, edge-to-edge layout design, and R8-level security obfuscation.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📱 Seamless Adaptive Layout</h3>
+            <p>Intelligently scales grids and components across all form factors, ensuring a fluid, native experience whether running on compact smartphones or expansive tablets.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 The CodeCanvas Studio. All Rights Reserved.</p>
+    <p>Support & Inquiries: <a href="mailto:rajesh.codecanvas@gmail.com">rajesh.codecanvas@gmail.com</a></p>
+</div>
+
+</body>
+</html>
