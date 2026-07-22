@@ -8,16 +8,20 @@
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="MMqmlEOD0iVHV2feZuyb7e8ScP_bLt85p2cluIiH2x0" />
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.4);
             --accent: #06b6d4;
-            --bg: #0f172a;
+            --bg: #090d16;
             --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -25,73 +29,296 @@
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
-            background-image: radial-gradient(circle at top right, #1e1b4b, transparent), 
-                              radial-gradient(circle at bottom left, #1e1b4b, transparent);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12), transparent 40%), 
+                radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08), transparent 40%);
             background-attachment: fixed;
+            min-height: 100vh;
         }
 
-        .header { padding: 80px 20px; text-align: center; }
+        .header { 
+            padding: 100px 20px 60px; 
+            text-align: center; 
+        }
         
         .studio-badge { 
             display: inline-block; 
-            padding: 6px 16px; 
-            background: linear-gradient(90deg, #10b981, #059669); 
+            padding: 8px 20px; 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.2)); 
+            border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 50px; 
-            font-size: 0.7rem; 
+            font-size: 0.75rem; 
             font-weight: 800; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            margin-bottom: 20px; 
+            margin-bottom: 24px;
+            color: #34d399;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
         }
 
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
-        .hero-p { color: var(--text-dim); font-size: 1.25rem; max-width: 650px; margin: 20px auto; }
+        h1 { 
+            font-size: 3.8rem; 
+            margin: 0; 
+            letter-spacing: -2px; 
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .hero-p { 
+            color: var(--text-dim); 
+            font-size: 1.2rem; 
+            max-width: 650px; 
+            margin: 20px auto 0; 
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px 80px; 
+        }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 28px; 
+        }
 
         .app-card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-            display: flex; flex-direction: column;
+            padding: 32px;
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
-        .app-card:hover { transform: translateY(-8px); border-color: var(--primary); background: rgba(255, 255, 255, 0.06); }
-        .app-card h3 { margin: 0 0 10px 0; color: #fff; }
-        .app-card p { color: var(--text-dim); font-size: 0.9rem; flex-grow: 1; margin-bottom: 20px; }
-        
-        .btn { padding: 10px 16px; background: rgba(255,255,255,0.05); color: #fff; text-decoration: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
-        .btn:hover { background: var(--primary); border-color: var(--primary); }
 
-        .footer { text-align: center; padding: 60px 20px; color: var(--text-dim); font-size: 0.9rem; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .app-card:hover { 
+            transform: translateY(-8px); 
+            border-color: rgba(99, 102, 241, 0.4); 
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--primary-glow);
+        }
+
+        .app-card:hover::before { opacity: 1; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .app-card h3 { 
+            margin: 0; 
+            color: #fff; 
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .status-pill {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-pill.live {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-pill.soon {
+            background: rgba(148, 163, 184, 0.1);
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .app-card p { 
+            color: var(--text-dim); 
+            font-size: 0.95rem; 
+            flex-grow: 1; 
+            margin: 0 0 24px 0; 
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn { 
+            padding: 12px 18px; 
+            background: rgba(255, 255, 255, 0.05); 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 12px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-align: center; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            transition: all 0.2s ease;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            flex-grow: 1;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover { 
+            background: #4f46e5; 
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover { 
+            background: rgba(255, 255, 255, 0.1); 
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: var(--text-dim); 
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.6rem; } 
+            .header { padding: 60px 20px 40px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="studio-badge">Verified Android Developer</div>
+    <div class="studio-badge">Verified Android Studio</div>
     <h1>The CodeCanvas Studio</h1>
     <p class="hero-p">Crafting high-performance digital experiences with modern architecture and user-centric design.</p>
 </div>
 
 <div class="container">
     <div class="grid">
-        <div class="app-card"><h3>QMaster: Brain Trivia</h3><p>Advanced cognitive training platform with low-latency architecture.</p><a href="https://rajeshcodecanvas-byte.github.io/qmaster-legal/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>AmaOdia Dictionary</h3><p>Comprehensive linguistic bridge with 2.4L words and offline search.</p><a href="https://rajeshcodecanvas-byte.github.io/amaodia-privacy-policy/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>HydraAI Tracker</h3><p>Next-gen wellness management with personalized hydration goals.</p><a href="https://rajeshcodecanvas-byte.github.io/HydraAI-Legal/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>Vora Unit Converter</h3><p>Minimalist engineering tool with glassmorphic design.</p><a href="https://rajeshcodecanvas-byte.github.io/vora-legal/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>VizoScan</h3><p>Professional document digitizer with high-speed local OCR.</p><a href="https://rajeshcodecanvas-byte.github.io/vizoscan-legal/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>SoulPure</h3><p>Mental wellness companion featuring Material 3 interface.</p><a href="https://rajeshcodecanvas-byte.github.io/soulpure-legal/" class="btn">Privacy Policy</a></div>
-        <div class="app-card"><h3>Ultra Calculator</h3><p>Precision-engineered utility for seamless daily calculations.</p><a href="https://rajeshcodecanvas-byte.github.io/Ultra-Calculator-policy/" class="btn">Privacy Policy</a></div>
+        <!-- Live App: QMaster -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>QMaster: Brain Trivia</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Advanced cognitive training platform with low-latency architecture, 4,000+ MCQs, and immersive design.</p>
+            <div class="card-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.rajesh.codecanvas.qmaster&pcampaignid=web_share" class="btn btn-primary" target="_blank">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.47 1.47 0 0 1-.61-1.2V3.014c0-.495.22-.95.61-1.2zM15.208 13.415l2.052 2.052-10.45 6.034 8.398-8.086zM6.81 4.5l10.45 6.034-2.052 2.052L6.81 4.5zM17.26 12.535l3.435 1.983a1.47 1.47 0 0 1 0 2.544l-3.435 1.983-2.052-2.052 2.052-2.052c0-.14 0-.27 0-.406z"/></svg>
+                    Google Play
+                </a>
+                <a href="https://rajeshcodecanvas-byte.github.io/qmaster-legal/" class="btn btn-secondary">Privacy</a>
+            </div>
+        </div>
+
+        <!-- AmaOdia Dictionary -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>AmaOdia Dictionary</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Comprehensive linguistic bridge with 100k+ words and high-speed offline local-first database search.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/amaodia-privacy-policy/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- HydraAI Tracker -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>HydraAI Tracker</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Next-gen wellness management system featuring intelligent reminders and clean glassmorphic UI.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/HydraAI-Legal/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Vora Unit Converter -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>Vora Unit Converter</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Minimalist engineering utility designed for precision calculations with fluid Material 3 components.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/vora-legal/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- VizoScan -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>VizoScan</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Professional document digitizer built with lightning-fast local OCR capabilities and privacy prioritization.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/vizoscan-legal/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- SoulPure -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>SoulPure</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Mental wellness and motivation companion featuring an uplifting daily quote interface.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/soulpure-legal/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Ultra Calculator -->
+        <div class="app-card">
+            <div class="card-header">
+                <h3>Ultra Calculator</h3>
+                <span class="status-pill live">Live</span>
+            </div>
+            <p>Precision-engineered multi-mode utility built for seamless performance in daily math operations.</p>
+            <div class="card-actions">
+                <a href="https://rajeshcodecanvas-byte.github.io/Ultra-Calculator-policy/" class="btn btn-secondary" style="width: 100%;">Privacy Policy</a>
+            </div>
+        </div>
     </div>
 </div>
 
 <div class="footer">
     <p>&copy; 2026 The CodeCanvas Studio. All Rights Reserved.</p>
-    <p>Professional Inquiries: <a href="mailto:rajesh.codecanvas@gmail.com" style="color: var(--accent);">rajesh.codecanvas@gmail.com</a></p>
+    <p>Professional Inquiries: <a href="mailto:rajesh.codecanvas@gmail.com">rajesh.codecanvas@gmail.com</a></p>
 </div>
 
 </body>
